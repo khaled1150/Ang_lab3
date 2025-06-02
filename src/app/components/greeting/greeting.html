@@ -1,0 +1,13 @@
+<h2>Hello, {{ name }}!</h2>
+<!-- Interpolation -->
+
+<p>You have clicked the button {{ count }} times.</p>
+<!-- Interpolation -->
+
+<!-- Event binding -->
+<button (click)="incrementCount()">Click me</button>
+<br />
+<br />
+
+<!-- Property binding -->
+<input type="text" value="{{name}}" #input (keyup.enter)="name=input.value" />
