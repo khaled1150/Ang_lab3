@@ -1,18 +1,18 @@
 <h3 id="tit">OurProducts</h3>
 <div id="total">
-  <h4>Total Products : {{products.length}}</h4>
+  <h4>Total Products : {{size}}</h4>
 </div>
 <div class="filter-container">
   <div>
-    <label for="category">Category</label>
-    <select id="category" #cat>
-      <option value="">All</option>
-      <option value="Longsword">Longsword</option>
-      <option value="Katana">Katana</option>
-      <option value="Scimitar">Scimitar</option>
-      <option value="Scimitar">Kilij</option>
-    </select>
-  </div>
+  <label for="category">Category</label>
+  <select id="category" #cat (click)="category=cat.value" [value]="category">
+    <option value="ALL">All</option>
+    <option *ngFor="let cate of categories" [value]="cate">
+      {{ cate }}
+    </option>
+  </select>
+</div>
+
   <div>
     <label for="product-title">Product Title</label>
     <input
@@ -20,16 +20,23 @@
       id="product-title"
       #tit
       placeholder="Search by title..."
+      (blur)="title=tit.value"
+      [value]="title"
     />
   </div>
   <div>
     <label for="max-price">Max Price ($)</label>
-    <input type="number" id="max-price" #price1 placeholder="Enter max price" />
+    <input type="number" id="max-price" #price1 (blur)="price=+price1.value" placeholder="Enter max price" [value]="price" />
   </div>
   <button
-    (click)="title=tit.value;price=price1.valueAsNumber;category=cat.value"
+    (click)="apply()"
   >
     Apply
+  </button>
+    <button
+    (click)="reset()"
+  >
+    Reset
   </button>
 </div>
 <div class="filter-values-container">
@@ -39,11 +46,26 @@
   <p>Max Price: <span>{{price}}$</span></p>
 </div>
 
+
+<div class="no-products" [hidden]="isThere()">
+  <img src="https://cdn-icons-png.flaticon.com/512/7486/7486790.png" alt="No Products" />
+  <p>No products found matching your criteria.</p>
+</div>
+
+
+
 <div class="sword-list">
-  <div class="sword-item" *ngFor="let sword of products">
-    <img src="{{sword.image}}" alt="{{ sword.name }}" class="sword-image" />
-    <h4>{{ sword.name }}</h4>
-    <p>Price: ${{ sword.price }}</p>
-    <p>Quantity: {{ sword.quantity }}</p>
+  <div class="sword-item" *ngFor="let sword of products| productFilter:title:price:category ">
+  <img [src]="sword.images[0]" [alt]="sword.title" class="sword-image" />
+    
+  <div class="sword-details">
+    
+    <h2 class="sword-title">{{ sword.title }}</h2>
+    <h3 class="sword-category">{{ sword.category }}</h3>
+    <p class="sword-description">{{ sword.description }}</p>
+    <p class="sword-price">Price: ${{ sword.price }}</p>
+    <p class="sword-stock">Quantity: {{ sword.stock }}</p>
   </div>
+</div>
+
 </div>

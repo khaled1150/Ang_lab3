@@ -7,6 +7,8 @@ import { Greeting } from './components/greeting/greeting';
 import { Navbar } from './components/navbar/navbar';
 import { Products } from './components/products/products';
 import { Footer } from './components/footer/footer';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductFilterPipe } from './pipes/product-filter-pipe'; 
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { Footer } from './components/footer/footer';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ProductFilterPipe 
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -26,6 +30,4 @@ import { Footer } from './components/footer/footer';
   ],
   bootstrap: [App]
 })
-export class AppModule { 
-  
-}
+export class AppModule { }

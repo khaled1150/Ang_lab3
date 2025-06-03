@@ -1,5 +1,10 @@
 import { NONE_TYPE } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { booleanAttribute, Component, OnInit } from '@angular/core';
+import { ProductDTO } from '../../models/product.dto';
+import { ProductService } from '../../services/product';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-products',
@@ -7,22 +12,65 @@ import { Component } from '@angular/core';
   templateUrl: './products.html',
   styleUrl: './products.css'
 })
-export class Products {
+export class Products implements OnInit{
+  constructor(private productService: ProductService,private categoryService: CategoryService) {}
+  ngOnInit(): void {
+     this.productService.getAllProducts().subscribe(data => {
+      this.products1 = data;
+      this.products=this.products1;
+      this.size=this.products1.length;
+      
+    });
+    this.categoryService.getCategories().subscribe((data) => {
+      this.categories = data.map(a=>{return a.name});
+    });
+    
+  }
+  apply()
+  {
+    //alert(this.category+"  "+this.title+"   "+this.price);
+      this.products = this.products1.filter(a => {
+  let c = true;
+
+  if (this.category !== "ALL") {
+    c = c && (a.category.toLowerCase() === this.category.toLowerCase());
+  }
+
+  if (this.title !== "None"&&this.title !== "") {
+    c = c && (a.title.toLowerCase().includes( this.title.toLowerCase()));
+  }
+
+  if (!isNaN(this.price)) {
+    c = c && (a.price <= this.price);
+  }
+
+  return c;
+});
+
+  }
+  reset()
+  {
+    
+    this.price=NaN;
+    this.category="ALL";
+    this.title="None";
+    this.products=this.products1;
+          this.size=this.products1.length;
+
+  }
+  isThere():any
+  {
+      return this.products.length>0;
+  }
+  products: ProductDTO[] = [];
+  products1: ProductDTO[] = [];
   category: string = "ALL";
   title: string = "None";
   price: number = NaN;
   pre:string="assets/image";
   post:string=".jpeg";
-  products:{name: string ,price:number , quantity:number ,image:string}[]=
-  [
-        { name: 'Excalibur', price: 1200, quantity: 3, image: this.pre+2+this.post },
-        { name: 'Katana', price: 800, quantity: 5, image: this.pre+3+this.post },
-        { name: 'Longsword', price: 600, quantity: 10, image: this.pre+4+this.post },
-        { name: 'Scimitar', price: 450, quantity: 7, image: this.pre+5+this.post },
-        { name: 'Claymore', price: 950, quantity: 4, image: this.pre+6+this.post },
-        { name: 'Rapier', price: 500, quantity: 8, image: this.pre+7+this.post },
-        { name: 'Zweihänder', price: 1100, quantity: 2, image: this.pre+8+this.post },
-        { name: 'Kilij', price: 700, quantity: 6, image: this.pre+9+this.post }
-    ];
+  categories: string[] = [];
+  size:number=0;
+  
 
 }
