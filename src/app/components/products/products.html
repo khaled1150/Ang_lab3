@@ -1,6 +1,6 @@
 <h3 id="tit">OurProducts</h3>
 <div id="total">
-  <h4>Total Products : {{products.length}}</h4>
+  <h4>Total Products :  {{ (products | productFilter:title:price:category)?.length }}</h4>
 </div>
 <div class="filter-container">
   <div>
@@ -58,7 +58,7 @@
   <div class="sword-item" *ngFor="let sword of products| productFilter:title:price:category ">
   <img [src]="sword.images[0]" [alt]="sword.title" class="sword-image" />
     
-  <div class="sword-details">
+  <div class="sword-details" >
     
     <h2 class="sword-title">{{ sword.title }}</h2>
     <h3 class="sword-category">{{ sword.category }}</h3>

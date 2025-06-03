@@ -60,7 +60,7 @@ export class Products implements OnInit{
   }
   isThere():any
   {
-      return this.products.length>0;
+      return this.size>0;
   }
   products: ProductDTO[] = [];
   products1: ProductDTO[] = [];
