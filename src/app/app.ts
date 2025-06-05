@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'lab3';
+title = 'lab3';
+  cartItemCount: number = 0; // Basic cart item counter
+
+  
+  
+
+  addToCart() {
+    this.cartItemCount++;
+  }
 }

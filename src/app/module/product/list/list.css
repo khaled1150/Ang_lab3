@@ -1,0 +1,323 @@
+#tit
+{
+    font-weight: 600;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+}
+h4
+{
+    font-weight: 300;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+}
+.filter-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .filter-container label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .filter-container select,
+        .filter-container input[type="text"],
+        .filter-container input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .filter-container select {
+            width: 100px;
+        }
+
+        .filter-container input[type="text"] {
+            width: 150px;
+        }
+
+        .filter-container input[type="number"] {
+            width: 100px;
+        }
+
+        .filter-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .filter-container button:hover {
+            background-color: #0056b3;
+        }
+        .filter-values-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .filter-values-container h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .filter-values-container p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .filter-values-container p span {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .sword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .sword-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            width: 400px;
+            text-align: center;
+            
+        }
+
+        .sword-image {
+            width: 100%;
+            height: 350px;
+            object-fit: scale-down;
+            border-radius: 5px;
+        }
+
+        .sword-item h4 {
+            width: 100%;
+            align-self:center;
+            margin: auto 0px ;
+            font-size: 16px;
+        }
+        .sword-item p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .sword-item {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  background: #fff;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+
+
+.sword-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 0.8em;
+  color: #2d2d2d;
+}
+
+.sword-category {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+.sword-description {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+  margin: 0.5em 0;
+}
+
+.sword-price,
+.sword-stock {
+  font-size: 1rem;
+  color: #222;
+  margin: 0.3em 0;
+  font-weight: 500;
+}
+
+
+
+.no-products {
+  text-align: center;
+  padding: 2rem;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  color: #666;
+  background-color: #f9f9f9;
+  margin: 2rem;
+}
+
+.no-products img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.no-products p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.sword-list {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.sword-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit;
+  display: block;
+}
+
+.sword-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sword-item a {
+  text-decoration: none; /* Ensure no underline on the anchor tag */
+  color: inherit;
+}
+
+.sword-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sword-details {
+  padding: 1.5rem;
+}
+
+.sword-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: #333;
+  font-weight: 600;
+  text-decoration: none; /* Remove underline if inherited */
+}
+
+.sword-category {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 0.75rem;
+  text-transform: capitalize;
+  text-decoration: none; /* Remove underline if inherited */
+}
+
+.sword-description {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none; /* Remove underline if inherited */
+}
+
+.sword-price {
+  font-size: 1.2rem;
+  color: #2c6e49; /* Matches your image's green accent */
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+  text-decoration: none; /* Remove underline if inherited */
+}
+
+.sword-stock {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0;
+  text-decoration: none; /* Remove underline if inherited */
+}
+
+@media (max-width: 768px) {
+  .sword-list {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+
+  .sword-item {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .sword-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sword-title {
+    font-size: 1.3rem;
+  }
+
+  .sword-category {
+    font-size: 1rem;
+  }
+
+  .sword-description {
+    font-size: 0.9rem;
+  }
+
+  .sword-price {
+    font-size: 1.1rem;
+  }
+
+  .sword-stock {
+    font-size: 0.9rem;
+  }
+}
+.image-container img {
+  width: 100%;
+  max-height: 300px; /* adjust as needed */
+  object-fit:cover; /* cover the container nicely */
+  display: block;
+  margin: 0;
+}

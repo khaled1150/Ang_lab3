@@ -1,0 +1,36 @@
+<div class="product-details-container" *ngIf="product; else noProduct">
+  <div class="product-image-section">
+    <img [src]="product.images[0]" [alt]="product.title" class="product-image" />
+  </div>
+  <div class="product-info-section">
+    <h1 class="product-title">{{ product.title }}</h1>
+    <h2 class="product-category">{{ product.category }}</h2>
+    <p class="product-rating">{{ product.rating | stars }}</p>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">Price: ${{ product.price }}</p>
+    <p class="product-stock">In Stock: {{ product.stock }}</p>
+    <div class="quantity-counter">
+      <button class="quantity-button" (click)="decrementQuantity()" [disabled]="quantity === 1 || isAdding">-</button>
+      <span class="quantity-display">{{ quantity }}</span>
+      <button class="quantity-button" (click)="incrementQuantity()" [disabled]="quantity >= product.stock || isAdding">+</button>
+    </div>
+    <button class="add-to-cart" (click)="addToCart()" [disabled]="isAdding">
+      <span *ngIf="!isAdding">Add to Cart</span>
+      <span *ngIf="isAdding">Adding...</span>
+    </button>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal($event)">
+  <div class="modal-content">
+    <h3>Success!</h3>
+    <p>Added {{ quantity }} x {{ product?.title }} to cart at 12:58 AM EEST, Thursday, June 05, 2025.</p>
+    <button class="modal-button" (click)="closeModal()">Continue Shopping</button>
+  </div>
+</div>
+
+<ng-template #noProduct>
+  <div class="no-product">
+    <p>Product not found.</p>
+  </div>
+</ng-template>

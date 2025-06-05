@@ -9,7 +9,20 @@ import { Products } from './components/products/products';
 import { Footer } from './components/footer/footer';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductFilterPipe } from './pipes/product-filter-pipe'; 
-
+import { Routes } from '@angular/router';
+export const routes: Routes = [
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./module/product/product-module').then(m => m.ProductModule)
+  },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./module/cart/cart-module').then(m => m.CartModule)
+  }
+];
 @NgModule({
   declarations: [
     App,
@@ -30,4 +43,6 @@ import { ProductFilterPipe } from './pipes/product-filter-pipe';
   ],
   bootstrap: [App]
 })
+
+
 export class AppModule { }

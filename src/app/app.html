@@ -1,1 +1,25 @@
-<app-navbar></app-navbar> <app-products></app-products><app-footer></app-footer>
+<header class="navbar">
+  <div class="navbar-container">
+    <h1 class="navbar-logo">My Store</h1>
+    <nav class="navbar-links">
+      <a [routerLink]="['/products']" class="navbar-link">Home</a>
+      <a [routerLink]="['/products']" class="navbar-link">Products</a>
+    </nav>
+     <a [routerLink]="['/cart']" class="navbar-link">
+    <div class="navbar-cart" >
+      <span class="cart-icon">🛒</span>
+      <span class="cart-badge">{{ cartItemCount }}</span>
+    </div>
+    </a>
+  </div>
+</header>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <p>© 2025 My Store. All rights reserved.</p>
+  </div>
+</footer>

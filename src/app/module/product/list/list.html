@@ -1,0 +1,74 @@
+<div class="image-container">
+  <img src="assets/image0.jpeg" alt="My Image" />
+</div>
+<h3 id="tit">OurProducts</h3>
+<div id="total">
+  <h4>Total Products :  {{ (products | productFilter:title:price:category)?.length }}</h4>
+</div>
+<div class="filter-container">
+  <div>
+  <label for="category">Category</label>
+  <select id="category" #cat (click)="category=cat.value" [value]="category">
+    <option value="ALL">All</option>
+    <option *ngFor="let cate of categories" [value]="cate">
+      {{ cate }}
+    </option>
+  </select>
+</div>
+
+  <div>
+    <label for="product-title">Product Title</label>
+    <input
+      type="text"
+      id="product-title"
+      #tit
+      placeholder="Search by title..."
+      (blur)="title=tit.value"
+      [value]="title"
+    />
+  </div>
+  <div>
+    <label for="max-price">Max Price ($)</label>
+    <input type="number" id="max-price" #price1 (blur)="price=+price1.value" placeholder="Enter max price" [value]="price" />
+  </div>
+  <button
+    (click)="apply()"
+  >
+    Apply
+  </button>
+    <button
+    (click)="reset()"
+  >
+    Reset
+  </button>
+</div>
+<div class="filter-values-container">
+  <h3>Current Filter Values</h3>
+  <p>Category: <span>{{category}}</span></p>
+  <p>Title Search: <span>{{title}}</span></p>
+  <p>Max Price: <span>{{price}}$</span></p>
+</div>
+
+
+<div class="no-products" [hidden]="isThere()">
+  <img src="https://cdn-icons-png.flaticon.com/512/7486/7486790.png" alt="No Products" />
+  <p>No products found matching your criteria.</p>
+</div>
+
+
+
+<div class="sword-list">
+  <div class="sword-item" *ngFor="let sword of products | productFilter:title:price:category">
+    <a [routerLink]="['/products', sword.id]">
+      <img [src]="sword.images[0]" [alt]="sword.title" class="sword-image" />
+      <div class="sword-details">
+        <h2 class="sword-title">{{ sword.title }}</h2>
+        <h3 class="sword-category">{{ sword.category }}</h3>
+        <p class="sword-description">{{ sword.description }}</p>
+        <p class="sword-price">Price: ${{ sword.price }}</p>
+        <p class="sword-stock">Quantity: {{ sword.stock }}</p>
+      </div>
+    </a>
+  </div>
+</div>
+

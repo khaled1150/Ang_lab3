@@ -1,1 +1,199 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2c6e49; /* Matches your green accent */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 50px; /* Reduced height */
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem; /* Reduced padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-logo {
+  margin: 0;
+  font-size: 1.2rem; /* Reduced font size */
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem; /* Reduced gap */
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem; /* Reduced font size */
+  transition: color 0.3s;
+}
+
+.navbar-link:hover {
+  color: #f4c430; /* Gold color for hover */
+}
+
+.navbar-cart {
+  position: relative;
+  cursor: pointer;
+  padding: 0.25rem; /* Reduced padding */
+}
+
+.cart-icon {
+  font-size: 1.2rem; /* Reduced font size */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #f4c430; /* Gold color for badge */
+  color: #2c6e49; /* Contrast with badge */
+  border-radius: 50%;
+  padding: 0.15rem 0.4rem; /* Reduced padding */
+  font-size: 0.8rem; /* Reduced font size */
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 50px; /* Matches new navbar height */
+  padding-bottom: 2rem; /* Adds space before footer */
+}
+
+.filter-section {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.filter-header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.filter-select,
+.filter-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.filter-input {
+  width: 150px;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-button.reset {
+  background-color: #dc3545;
+}
+
+.filter-button:hover {
+  opacity: 0.9;
+}
+
+.filter-values {
+  font-size: 0.9rem;
+  color: #007bff;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 1rem;
+  }
+
+  .navbar-links {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .navbar-cart {
+    margin-top: 0;
+  }
+
+  .main-content {
+    padding-top: 70px; /* Adjust for taller navbar on mobile */
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .filter-input {
+    width: 100%;
+  }
+}
+
+
+
 
